@@ -9,8 +9,9 @@ using namespace cv;
 int main() {
 	Mat img = imread("Resources/kinect_depth.png", IMREAD_GRAYSCALE);
 	Mat mask;
-	threshold(img, mask, 140, 255, THRESH_BINARY);
+	threshold(img, mask, 140, 255, THRESH_OTSU);
 	medianBlur(mask, mask, 7);
+	imshow("img", img);
 	imshow("frame", mask);
 	waitKey();
 	return 0;
